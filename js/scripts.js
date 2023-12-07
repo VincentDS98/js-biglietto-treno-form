@@ -7,7 +7,12 @@
  const calcButton = document.getElementById('calc-button');
  console.log('calcButton', calcButton,typeof calcButton);
 
- calcButton.addEventListener('click', function() {
+ const calcForm = document.querySelector('form');
+ console.log('calcForm', calcForm,typeof calcForm);
+
+ calcForm.addEventListener('submit', function(event) {
+
+    event.preventDefault();
 
     const kmInNumber = parseInt(km.value);
     const ageInNumber = parseInt(age.value);
@@ -39,4 +44,7 @@
         
         document.writeln('Ilprezzo del biglietto è' + price.toFixed(2));
     }
- })
+
+    const resultContainer = document.querySelector('h2');
+    resultContainer.innerHTML = 'Ilprezzo del tuo biglietto è' + price;
+ });
